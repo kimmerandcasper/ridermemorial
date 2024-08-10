@@ -30,11 +30,11 @@
         function initMap() {
             var riverviewHeightsCemetery = {lat: 46.2115, lng: -119.1225}; // Riverview Heights Cemetery coordinates
 
-            // Create a map centered on the fallback location
+            // Create a map centered on the fallback location (Riverview Heights Cemetery)
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 12,
                 center: riverviewHeightsCemetery, // Default to Riverview Heights Cemetery
-                styles: customMapStyle // Apply the custom style here if you have one
+                styles: [] // Add any custom styles here if needed
             });
 
             if (navigator.geolocation) {
@@ -51,10 +51,12 @@
                     });
                 }, function() {
                     // If geolocation fails, the map will stay centered on Riverview Heights Cemetery
+                    map.setCenter(riverviewHeightsCemetery);
                     alert('Error: The Geolocation service failed. Showing Riverview Heights Cemetery as a fallback location.');
                 });
             } else {
                 // Browser doesn't support Geolocation
+                map.setCenter(riverviewHeightsCemetery);
                 alert('Error: Your browser doesn\'t support geolocation. Showing Riverview Heights Cemetery as a fallback location.');
             }
 
