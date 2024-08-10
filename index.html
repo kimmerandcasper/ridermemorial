@@ -28,60 +28,50 @@
     <!-- Google Maps JavaScript API -->
     <script>
         function initMap() {
-            var mapOptions = {
+            var riverviewHeightsCemetery = {lat: 46.2115, lng: -119.1225}; // Riverview Heights Cemetery coordinates
+
+            // Create a map centered on the fallback location
+            var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 12,
-                // Placeholder center, will be updated with user's location
-                center: {lat: 37.7749, lng: -122.4194}
-            };
+                center: riverviewHeightsCemetery, // Default to Riverview Heights Cemetery
+                styles: customMapStyle // Apply the custom style here if you have one
+            });
 
-            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-            // Try to get the user's current location
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
                     var userLocation = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     };
-
-                    // Center the map on the user's location
                     map.setCenter(userLocation);
-
-                    // Optionally, add a marker at the user's location
                     var userMarker = new google.maps.Marker({
                         position: userLocation,
                         map: map,
                         title: 'You are here'
                     });
                 }, function() {
-                    handleLocationError(true, map.getCenter());
+                    // If geolocation fails, the map will stay centered on Riverview Heights Cemetery
+                    alert('Error: The Geolocation service failed. Showing Riverview Heights Cemetery as a fallback location.');
                 });
             } else {
                 // Browser doesn't support Geolocation
-                handleLocationError(false, map.getCenter());
+                alert('Error: Your browser doesn\'t support geolocation. Showing Riverview Heights Cemetery as a fallback location.');
             }
 
-            // Example: Adding a memorial marker with an info window
-            var memorialLocation = {lat: 37.7749, lng: -122.4194}; // Example coordinates
-            var marker = new google.maps.Marker({
-                position: memorialLocation,
+            // Example: Adding a memorial marker at Riverview Heights Cemetery
+            var memorialMarker = new google.maps.Marker({
+                position: riverviewHeightsCemetery,
                 map: map,
-                title: 'Example Memorial'
+                title: 'Riverview Heights Cemetery'
             });
 
             var infowindow = new google.maps.InfoWindow({
-                content: '<h2>Example Memorial</h2><p>Description of the memorial.</p>'
+                content: '<h2>Riverview Heights Cemetery</h2><p>Information about the cemetery or specific memorial.</p>'
             });
 
-            marker.addListener('click', function() {
-                infowindow.open(map, marker);
+            memorialMarker.addListener('click', function() {
+                infowindow.open(map, memorialMarker);
             });
-        }
-
-        function handleLocationError(browserHasGeolocation, pos) {
-            alert(browserHasGeolocation
-                ? 'Error: The Geolocation service failed.'
-                : 'Error: Your browser doesn\'t support geolocation.');
         }
     </script>
 
