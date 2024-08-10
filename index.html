@@ -1,151 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diffused Reflections - AI Art Gallery</title>
-    
-    <!-- Meta Tags -->
-    <meta name="description" content="Diffused Reflections is a digital art gallery featuring AI-generated art that captures the essence of adventure, beauty, and tranquility.">
-    <meta name="keywords" content="AI art, digital art, gallery, adventure, beauty, tranquility, Diffused Reflections">
-    <meta name="author" content="Diffused Reflections">
-    <meta property="og:title" content="Diffused Reflections - AI Art Gallery">
-    <meta property="og:description" content="Explore stunning visual art that captures the essence of adventure, beauty, and tranquility.">
-    <meta property="og:image" content="image1.png">
-    <meta property="og:url" content="https://diffusedreflections.com">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- Favicon -->
-    <link rel="icon" href="image1.png" type="image/png" sizes="32x32">
-
+    <title>Rider Memorials Map</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
+        /* Set the size of the map */
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        html, body {
+            height: 100%;
             margin: 0;
             padding: 0;
-            color: #333;
-        }
-
-        .header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            font-weight: bold;
-        }
-
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .intro {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .intro p {
-            font-size: 1.2em;
-            line-height: 1.6;
-            margin: 10px 0;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            background-color: #fff;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .gallery-item h2 {
-            font-size: 1.5em;
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }
-
-        .gallery-item p {
-            font-size: 1em;
-            line-height: 1.4;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: #fff;
-            margin-top: 40px;
-        }
-
-        .footer p {
-            margin: 0;
-            font-size: 1em;
         }
     </style>
 </head>
-
 <body>
-    <div class="header">
-        <h1>Diffused Reflections</h1>
-        <p>A Digital Art Gallery Featuring AI-Generated Art</p>
-    </div>
 
-    <div class="container">
-        <div class="intro">
-            <p>Welcome to Diffused Reflections, a digital art gallery that celebrates the power of AI to create stunning visual art. Each piece in this collection has been carefully crafted to evoke a sense of adventure, beauty, and tranquility. We invite you to explore these works and immerse yourself in the diverse landscapes and emotions they capture.</p>
-        </div>
+    <h1>Welcome to Rider Memorials</h1>
+    <p>Explore the memorials in your area by clicking on the map markers below.</p>
 
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="image1.png" alt="Sunset Ride through the Mountains">
-                <h2>Sunset Ride through the Mountains</h2>
-                <p>This piece captures a serene moment of a man and his loyal Australian Shepherd riding through winding mountain roads during a golden sunset. The warm hues and peaceful landscape create a sense of calm and connection with nature.</p>
-            </div>
-            <div class="gallery-item">
-                <img src="image2.png" alt="Coastal Journey">
-                <h2>Coastal Journey</h2>
-                <p>Set against the backdrop of a vibrant coastal highway, this image showcases the freedom of the open road. The crystal-clear ocean waves and towering cliffs provide a stunning contrast to the joyful companionship between man and dog.</p>
-            </div>
-            <div class="gallery-item">
-                <img src="image3.png" alt="Mystical Forest Ride">
-                <h2>Mystical Forest Ride</h2>
-                <p>In this enchanting scene, a ride through an ancient forest reveals the mystical beauty of nature. Sunlight filters through the tall trees, casting ethereal rays that highlight the bond between the rider and his adventurous companion.</p>
-            </div>
-            <div class="gallery-item">
-                <img src="image4.png" alt="Desert Adventure">
-                <h2>Desert Adventure</h2>
-                <p>This image portrays an exhilarating journey through a vast desert landscape. The endless dunes and rugged terrain symbolize the thrill of exploration, with the Australian Shepherd eagerly sharing in the excitement.</p>
-            </div>
-            <div class="gallery-item">
-                <img src="image5.png" alt="Winter Wonderland">
-                <h2>Winter Wonderland</h2>
-                <p>A serene winter scene, this piece captures the tranquility of riding through a snow-covered mountain road. The crisp air and pristine surroundings create a peaceful atmosphere, perfect for a quiet escape into nature.</p>
-            </div>
-        </div>
-    </div>
+    <!-- Map container -->
+    <div id="map"></div>
 
-    <div class="footer">
-        <p>&copy; 2024 Diffused Reflections. All rights reserved.</p>
-    </div>
+    <!-- Google Maps JavaScript API -->
+    <script>
+        function initMap() {
+            // Create a map centered on a specific location
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 37.7749, lng: -122.4194}, // Example: San Francisco, replace with your desired location
+                zoom: 12
+            });
+
+            // Example: Adding a marker with an info window
+            var memorialLocation = {lat: 37.7749, lng: -122.4194};
+            var marker = new google.maps.Marker({
+                position: memorialLocation,
+                map: map,
+                title: 'Example Memorial'
+            });
+
+            var infowindow = new google.maps.InfoWindow({
+                content: '<h2>Example Memorial</h2><p>Description of the memorial.</p>'
+            });
+
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
+        }
+    </script>
+
+    <!-- Load the Google Maps API with your API key -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBBjtfvrqwMtNJz28TR0fJpWuH33pMY40&callback=initMap">
+    </script>
+
 </body>
-
 </html>
