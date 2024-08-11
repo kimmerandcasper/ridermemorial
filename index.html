@@ -105,23 +105,13 @@
                         title: 'You are here'
                     });
                 }, function() {
-                    handleLocationError(true, map.getCenter());
+                    console.log('Geolocation service failed.');
+                    map.setCenter(riverviewHeightsCemetery);
                 });
             } else {
                 // Browser doesn't support Geolocation
-                handleLocationError(false, map.getCenter());
-            }
-
-            // Function to handle geolocation errors
-            function handleLocationError(browserHasGeolocation, pos) {
-                var infoWindow = new google.maps.InfoWindow({
-                    map: map,
-                    position: pos,
-                    content: browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.'
-                });
-                map.setCenter(pos);
+                console.log('Your browser doesn\'t support geolocation.');
+                map.setCenter(riverviewHeightsCemetery);
             }
 
             // Adding Joshua Elliot's Memorial Marker with the resized black cross icon
