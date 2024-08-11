@@ -75,12 +75,6 @@
                     return;
                 }
 
-                // Clear out the old markers.
-                markers.forEach(function(marker) {
-                    marker.setMap(null);
-                });
-                markers = [];
-
                 // For each place, get the icon, name, and location.
                 var bounds = new google.maps.LatLngBounds();
                 places.forEach(function(place) {
@@ -88,20 +82,6 @@
                         console.log("Returned place contains no geometry");
                         return;
                     }
-
-                    // Create a marker for each place.
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        title: place.name,
-                        position: place.geometry.location
-                    });
-
-                    // Handle mouse click on search result
-                    google.maps.event.addListener(marker, 'click', function() {
-                        map.setCenter(marker.getPosition());
-                    });
-
-                    markers.push(marker);
 
                     if (place.geometry.viewport) {
                         bounds.union(place.geometry.viewport);
@@ -125,11 +105,23 @@
                         title: 'You are here'
                     });
                 }, function() {
-                    map.setCenter(riverviewHeightsCemetery);
-                    // No alert now; just center on Riverview Heights Cemetery
+                    handleLocationError(true, map.getCenter());
                 });
             } else {
-                map.setCenter(riverviewHeightsCemetery);
+                // Browser doesn't support Geolocation
+                handleLocationError(false, map.getCenter());
+            }
+
+            // Function to handle geolocation errors
+            function handleLocationError(browserHasGeolocation, pos) {
+                var infoWindow = new google.maps.InfoWindow({
+                    map: map,
+                    position: pos,
+                    content: browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.'
+                });
+                map.setCenter(pos);
             }
 
             // Adding Joshua Elliot's Memorial Marker with the resized black cross icon
