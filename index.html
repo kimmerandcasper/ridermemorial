@@ -202,15 +202,6 @@
                 openInfoWindow = cemeteryInfoWindow;
             }
 
-            // Adding a default popup with welcome message
-            var welcomeInfoWindow = new google.maps.InfoWindow({
-                content: '<div class="memorial-popup"><h2>Welcome!</h2><p>This map shows memorials for riders. Tap on a marker to learn more about the memorials in your area.</p></div>',
-                position: riverviewHeightsCemetery,
-                pixelOffset: new google.maps.Size(0, -10)
-            });
-            welcomeInfoWindow.open(map);
-            openInfoWindow = welcomeInfoWindow;
-
             // Adding Joshua Elliot's Memorial Marker
             var joshuaElliotMemorial = new google.maps.Marker({
                 position: {lat: 46.23560, lng: -119.24055}, // Joshua Elliot's memorial coordinates
