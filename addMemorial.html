@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Memorial</title>
     <style>
-        /* Set the size of the map */
-        #map {
-            height: 500px;
-            width: 100%;
-        }
         html, body {
             height: 100%;
             margin: 0;
@@ -23,7 +18,36 @@
             margin: 20px;
         }
         @import url('https://fonts.googleapis.com/css2?family=Faster+One&display=swap'); /* Importing the Faster One font */
-        
+
+        /* Style for the header image */
+        .header-image {
+            width: 16.5%; /* Website size */
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Center the image */
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 768px) {
+            .header-image {
+                width: 49.5%; /* Increase the size to 3x on mobile devices */
+            }
+        }
+
+        /* Home link styling */
+        .home-link {
+            color: #fff;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.2em;
+            text-decoration: none;
+            display: block;
+        }
+
+        .home-link:hover {
+            text-decoration: underline;
+        }
+
         /* Instructions styling */
         .instructions {
             text-align: center;
@@ -47,6 +71,9 @@
     <!-- Header image -->
     <img src="https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/RiderMemorialTitle.png" alt="Rider Memorial Title" class="header-image">
 
+    <!-- Home link -->
+    <a href="index.html" class="home-link">Home</a>
+
     <h1>How to Add a Memorial</h1>
 
     <div class="instructions">
@@ -64,28 +91,6 @@
             </ul>
         </ol>
     </div>
-
-    <!-- Map container (optional if you want to include a map on this page) -->
-    <div id="map"></div>
-
-    <!-- Google Maps JavaScript API -->
-    <script>
-        function initMap() {
-            var riverviewHeightsCemetery = {lat: 46.2115, lng: -119.1225}; // Riverview Heights Cemetery coordinates
-
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
-                center: riverviewHeightsCemetery,
-            });
-
-            // Map code goes here if needed, otherwise remove this section if not using a map on this page
-        }
-    </script>
-
-    <!-- Load the Google Maps API with your API key -->
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBBjtfvrqwMtNJz28TR0fJpWuH33pMY40&callback=initMap">
-    </script>
 
 </body>
 </html>
