@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Memorial</title>
+    <style>
+        /* Set the size of the map */
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Black background */
+            color: #fff; /* White font color */
+            font-family: 'Faster One', sans-serif; /* Motorcycle-like font */
+        }
+        h1, p {
+            text-align: center;
+            margin: 20px;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Faster+One&display=swap'); /* Importing the Faster One font */
+        
+        /* Instructions styling */
+        .instructions {
+            text-align: center;
+            margin: 20px auto;
+            font-size: 1.2em;
+            line-height: 1.5;
+            max-width: 800px;
+        }
+
+        .instructions code {
+            background-color: #333;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header image -->
+    <img src="https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/RiderMemorialTitle.png" alt="Rider Memorial Title" class="header-image">
+
+    <h1>How to Add a Memorial</h1>
+
+    <div class="instructions">
+        <p>To add a memorial to the Rider Memorials Map, please follow these steps:</p>
+        <ol>
+            <li>Drop a pin on either Google or Apple Maps where the memorial is located.</li>
+            <li>Copy the coordinates from that pin. The coordinates should look something like this: <code>46.2115, -119.1225</code></li>
+            <li>Email these coordinates to <a href="mailto:kimmerandcasper@gmail.com" style="color: #00ffff;">kimmerandcasper@gmail.com</a>, including the following information:</li>
+            <ul>
+                <li>The full name of the fallen rider (with correct spelling).</li>
+                <li>A picture of the fallen rider.</li>
+                <li>A brief description of how the rider died.</li>
+                <li>The year of birth and death of the rider (e.g., 1985-2023).</li>
+                <li>Any additional information you'd like to include about the rider.</li>
+            </ul>
+        </ol>
+    </div>
+
+    <!-- Map container (optional if you want to include a map on this page) -->
+    <div id="map"></div>
+
+    <!-- Google Maps JavaScript API -->
+    <script>
+        function initMap() {
+            var riverviewHeightsCemetery = {lat: 46.2115, lng: -119.1225}; // Riverview Heights Cemetery coordinates
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: riverviewHeightsCemetery,
+            });
+
+            // Map code goes here if needed, otherwise remove this section if not using a map on this page
+        }
+    </script>
+
+    <!-- Load the Google Maps API with your API key -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBBjtfvrqwMtNJz28TR0fJpWuH33pMY40&callback=initMap">
+    </script>
+
+</body>
+</html>
