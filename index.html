@@ -110,11 +110,12 @@
                 map.setCenter(riverviewHeightsCemetery);
             }
 
-            // Adding Joshua Elliot's Memorial Marker
+            // Adding Joshua Elliot's Memorial Marker with a custom cross icon
             var joshuaElliotMemorial = new google.maps.Marker({
                 position: {lat: 46.23560, lng: -119.24055}, // Joshua Elliot's memorial coordinates
                 map: map,
-                title: 'Joshua Elliot Memorial'
+                title: 'Joshua Elliot Memorial',
+                icon: 'https://your-image-link-here.png' // Replace with your actual icon URL
             });
 
             var joshuaElliotInfoWindow = new google.maps.InfoWindow({
