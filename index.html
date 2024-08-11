@@ -103,7 +103,7 @@
     <!-- Using an img tag with a correct URL and reducing the size -->
     <img src="https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/RiderMemorialTitle.png" alt="Rider Memorial Title" class="header-image">
 
-    <p>Riding in spirit, forever in our hearts.</p>
+    <p>Never forget our fallen riders.</p>
 
     <!-- Search box -->
     <input id="pac-input" class="controls" type="text" placeholder="Search for your town">
@@ -161,6 +161,7 @@
             function closeOpenInfoWindow() {
                 if (openInfoWindow) {
                     openInfoWindow.close();
+                    openInfoWindow = null;
                 }
             }
 
@@ -205,11 +206,6 @@
             });
             welcomeInfoWindow.open(map);
             openInfoWindow = welcomeInfoWindow;
-
-            // Close welcome popup when clicking anywhere on the map or on a pin
-            map.addListener('click', function() {
-                closeOpenInfoWindow();
-            });
 
             // Adding Joshua Elliot's Memorial Marker
             var joshuaElliotMemorial = new google.maps.Marker({
