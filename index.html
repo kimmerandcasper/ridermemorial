@@ -122,18 +122,18 @@
             });
 
             var joshuaElliotInfoWindow = new google.maps.InfoWindow({
-                content: '<h2 style="color: black;">Joshua Elliot Memorial</h2><p style="color: black;">This is the memorial for Joshua Elliot.</p>'
+                content: '<h2 style="color: black;">Joshua Elliot Memorial</h2><p style="color: black;">This is the memorial for Joshua Elliot.</p><img src="https://github.com/kimmerandcasper/ridermemorial/blob/main/joshuaelliotphoto.jpeg?raw=true" alt="Joshua Elliot Photo" style="width:100%;height:auto;">'
             });
 
             joshuaElliotMemorial.addListener('click', function() {
                 joshuaElliotInfoWindow.open(map, joshuaElliotMemorial);
             });
 
-            // Adding Zade's Memorial Marker with the same cross icon
+            // Adding Zade Hakki's Memorial Marker with the same cross icon
             var zadeMemorial = new google.maps.Marker({
-                position: {lat: 46.21229, lng: -119.24368}, // Zade's memorial coordinates
+                position: {lat: 46.21229, lng: -119.24368}, // Zade Hakki's memorial coordinates
                 map: map,
-                title: 'Zade Memorial',
+                title: 'Zade Hakki Memorial',
                 icon: {
                     url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
                     scaledSize: new google.maps.Size(16, 32) // Adjusting both width and height, maintaining aspect ratio
@@ -141,7 +141,7 @@
             });
 
             var zadeInfoWindow = new google.maps.InfoWindow({
-                content: '<h2 style="color: black;">Zade Memorial</h2><p style="color: black;">This is the memorial for Zade.</p>'
+                content: '<h2 style="color: black;">Zade Hakki Memorial</h2><p style="color: black;">This is the memorial for Zade Hakki.</p><img src="https://github.com/kimmerandcasper/ridermemorial/blob/main/ZadeHakkiPhoto.png?raw=true" alt="Zade Hakki Photo" style="width:100%;height:auto;">'
             });
 
             zadeMemorial.addListener('click', function() {
@@ -198,7 +198,7 @@
             });
 
             var dylanInfoWindow = new google.maps.InfoWindow({
-                content: '<h2 style="color: black;">Dylan Arnold Bautista Memorial</h2><p style="color: black;">This is the memorial for Dylan Arnold Bautista.</p>'
+                content: '<h2 style="color: black;">Dylan Arnold Bautista Memorial</h2><p style="color: black;">This is the memorial for Dylan Arnold Bautista.</p><img src="https://github.com/kimmerandcasper/ridermemorial/blob/main/DylanArnoldBautistaPhoto.png?raw=true" alt="Dylan Arnold Bautista Photo" style="width:100%;height:auto;">'
             });
 
             dylanMemorial.addListener('click', function() {
