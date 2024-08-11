@@ -30,12 +30,14 @@
             font-size: 16px;
             font-family: 'Faster One', sans-serif;
             width: 300px;
+            margin-left: 20px; /* Add some spacing on the left */
+            margin-top: 10px; /* Add some spacing on the top */
         }
     </style>
 </head>
 <body>
 
-    <h1>Welcome to Rider Memorials</h1>
+    <h1>Rider Memorial Map</h1>
     <p>Explore the memorials in your area by clicking on the map markers below.</p>
 
     <!-- Search box -->
@@ -103,11 +105,23 @@
                         title: 'You are here'
                     });
                 }, function() {
-                    map.setCenter(riverviewHeightsCemetery);
-                    // No alert now; just center on Riverview Heights Cemetery
+                    handleLocationError(true, map.getCenter());
                 });
             } else {
-                map.setCenter(riverviewHeightsCemetery);
+                // Browser doesn't support Geolocation
+                handleLocationError(false, map.getCenter());
+            }
+
+            // Function to handle geolocation errors
+            function handleLocationError(browserHasGeolocation, pos) {
+                var infoWindow = new google.maps.InfoWindow({
+                    map: map,
+                    position: pos,
+                    content: browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.'
+                });
+                map.setCenter(pos);
             }
 
             // Adding Joshua Elliot's Memorial Marker with the resized black cross icon
