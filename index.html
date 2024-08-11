@@ -22,12 +22,24 @@
             text-align: center;
         }
         @import url('https://fonts.googleapis.com/css2?family=Faster+One&display=swap'); /* Importing the Faster One font */
+        
+        /* Search box styling */
+        #pac-input {
+            margin: 10px;
+            padding: 8px;
+            font-size: 16px;
+            font-family: 'Faster One', sans-serif;
+            width: 300px;
+        }
     </style>
 </head>
 <body>
 
     <h1>Welcome to Rider Memorials</h1>
     <p>Explore the memorials in your area by clicking on the map markers below.</p>
+
+    <!-- Search box -->
+    <input id="pac-input" class="controls" type="text" placeholder="Search for your town">
 
     <!-- Map container -->
     <div id="map"></div>
@@ -42,6 +54,41 @@
                 zoom: 12,
                 center: riverviewHeightsCemetery, // Default to Riverview Heights Cemetery
                 styles: [] // Add any custom styles here if needed
+            });
+
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById('pac-input');
+            var searchBox = new google.maps.places.SearchBox(input);
+
+            // Bias the SearchBox results towards the current map's viewport.
+            map.addListener('bounds_changed', function() {
+                searchBox.setBounds(map.getBounds());
+            });
+
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            searchBox.addListener('places_changed', function() {
+                var places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+
+                // For each place, get the icon, name, and location.
+                var bounds = new google.maps.LatLngBounds();
+                places.forEach(function(place) {
+                    if (!place.geometry) {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+
+                    if (place.geometry.viewport) {
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                map.fitBounds(bounds);
             });
 
             if (navigator.geolocation) {
@@ -59,12 +106,10 @@
                 }, function() {
                     // If geolocation fails, the map will stay centered on Riverview Heights Cemetery
                     map.setCenter(riverviewHeightsCemetery);
-                    alert('Error: The Geolocation service failed. Showing Riverview Heights Cemetery as a fallback location.');
                 });
             } else {
                 // Browser doesn't support Geolocation
                 map.setCenter(riverviewHeightsCemetery);
-                alert('Error: Your browser doesn\'t support geolocation. Showing Riverview Heights Cemetery as a fallback location.');
             }
 
             // Example: Adding a memorial marker at Riverview Heights Cemetery
@@ -86,7 +131,7 @@
 
     <!-- Load the Google Maps API with your API key -->
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBBjtfvrqwMtNJz28TR0fJpWuH33pMY40&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBBjtfvrqwMtNJz28TR0fJpWuH33pMY40&callback=initMap&libraries=places">
     </script>
 
 </body>
