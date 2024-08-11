@@ -105,13 +105,21 @@
                         title: 'You are here'
                     });
                 }, function() {
-                    console.log('Geolocation service failed.');
-                    map.setCenter(riverviewHeightsCemetery);
+                    handleLocationError(true, map.getCenter());
                 });
             } else {
                 // Browser doesn't support Geolocation
-                console.log('Your browser doesn\'t support geolocation.');
-                map.setCenter(riverviewHeightsCemetery);
+                handleLocationError(false, map.getCenter());
+            }
+
+            // Function to handle geolocation errors
+            function handleLocationError(browserHasGeolocation, pos) {
+                var infoWindow = new google.maps.InfoWindow({
+                    map: map,
+                    position: pos,
+                    content: '<span style="color: black;">Riverview Heights Cemetery</span>'
+                });
+                map.setCenter(pos);
             }
 
             // Adding Joshua Elliot's Memorial Marker with the resized black cross icon
