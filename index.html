@@ -50,8 +50,14 @@
         }
 
         /* Styling for memorial pop-up content */
+        .memorial-popup {
+            background-color: #000; /* Black background for the popup */
+            padding: 10px;
+            border-radius: 10px;
+        }
+
         .memorial-popup h2 {
-            color: black;
+            color: white;
             font-size: 1.875em; /* 25% bigger */
             margin: 0;
             padding: 0;
@@ -67,13 +73,13 @@
         .memorial-popup img {
             width: 50%; /* Reduce image size to 50% */
             height: auto;
-            border: 2px solid black;
+            border: 2px solid white; /* White border for contrast */
             display: block;
             margin: 10px auto 0 auto; /* Center the image and add margin */
         }
 
         .memorial-popup p {
-            color: black;
+            color: white;
             font-size: 1em;
             margin-top: 10px;
             text-align: center;
@@ -90,7 +96,7 @@
     <!-- Using an img tag with a correct URL and reducing the size -->
     <img src="https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/RiderMemorialTitle.png" alt="Rider Memorial Title" class="header-image">
 
-    <p>Explore the memorials in your area by clicking on the map markers below.</p>
+    <p>Tap the memorial markers in your area.</p>
 
     <!-- Search box -->
     <input id="pac-input" class="controls" type="text" placeholder="Search for your town">
