@@ -53,11 +53,15 @@
         .memorial-popup h2 {
             color: black;
             font-size: 1.875em; /* 25% bigger */
-            margin: 0 0 10px 0;
-            text-align: center;
+            margin: 0;
+            padding: 0;
             white-space: nowrap; /* Ensure name stays on one line */
             overflow: hidden;
             text-overflow: ellipsis; /* Add ellipsis if the name is too long */
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            width: 100%;
         }
 
         .memorial-popup img {
@@ -65,7 +69,7 @@
             height: auto;
             border: 2px solid black;
             display: block;
-            margin: 0 auto;
+            margin: 10px auto 0 auto; /* Center the image and add margin */
         }
 
         .memorial-popup p {
@@ -73,10 +77,6 @@
             font-size: 1em;
             margin-top: 10px;
             text-align: center;
-        }
-
-        .gm-style-iw {
-            top: 15px !important; /* Ensures that the X button doesn't displace content */
         }
     </style>
 </head>
@@ -283,6 +283,11 @@
                 closeOpenInfoWindow();
                 dylanInfoWindow.open(map, dylanMemorial);
                 openInfoWindow = dylanInfoWindow;
+            });
+
+            // Close all popups when clicking on the map
+            map.addListener('click', function() {
+                closeOpenInfoWindow();
             });
         }
     </script>
