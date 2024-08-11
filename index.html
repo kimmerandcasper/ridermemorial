@@ -52,9 +52,12 @@
         /* Styling for memorial pop-up content */
         .memorial-popup h2 {
             color: black;
-            font-size: 1.5em;
+            font-size: 1.875em; /* 25% bigger */
             margin: 0 0 10px 0;
             text-align: center;
+            white-space: nowrap; /* Ensure name stays on one line */
+            overflow: hidden;
+            text-overflow: ellipsis; /* Add ellipsis if the name is too long */
         }
 
         .memorial-popup img {
@@ -70,6 +73,10 @@
             font-size: 1em;
             margin-top: 10px;
             text-align: center;
+        }
+
+        .gm-style-iw {
+            top: 15px !important; /* Ensures that the X button doesn't displace content */
         }
     </style>
 </head>
@@ -132,10 +139,14 @@
             });
 
             let openInfoWindow = null;
+            let cemeteryInfoWindow = null;
 
             function closeOpenInfoWindow() {
                 if (openInfoWindow) {
                     openInfoWindow.close();
+                }
+                if (cemeteryInfoWindow) {
+                    cemeteryInfoWindow.close();
                 }
             }
 
@@ -161,7 +172,7 @@
 
             // Function to handle geolocation errors
             function handleLocationError(browserHasGeolocation, pos) {
-                var infoWindow = new google.maps.InfoWindow({
+                cemeteryInfoWindow = new google.maps.InfoWindow({
                     map: map,
                     position: pos,
                     content: '<span style="color: black;">Riverview Heights Cemetery</span>'
