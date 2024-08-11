@@ -58,7 +58,7 @@
         }
 
         .memorial-popup img {
-            width: 100%;
+            width: 50%; /* Reduce image size to 50% */
             height: auto;
             border: 2px solid black;
             display: block;
@@ -131,6 +131,14 @@
                 map.fitBounds(bounds);
             });
 
+            let openInfoWindow = null;
+
+            function closeOpenInfoWindow() {
+                if (openInfoWindow) {
+                    openInfoWindow.close();
+                }
+            }
+
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
                     var userLocation = {
@@ -177,7 +185,9 @@
             });
 
             joshuaElliotMemorial.addListener('click', function() {
+                closeOpenInfoWindow();
                 joshuaElliotInfoWindow.open(map, joshuaElliotMemorial);
+                openInfoWindow = joshuaElliotInfoWindow;
             });
 
             // Adding Zade Hakki's Memorial Marker
@@ -196,7 +206,9 @@
             });
 
             zadeMemorial.addListener('click', function() {
+                closeOpenInfoWindow();
                 zadeInfoWindow.open(map, zadeMemorial);
+                openInfoWindow = zadeInfoWindow;
             });
 
             // Adding Jacob's Memorial Marker
@@ -215,7 +227,9 @@
             });
 
             jacobMemorial.addListener('click', function() {
+                closeOpenInfoWindow();
                 jacobInfoWindow.open(map, jacobMemorial);
+                openInfoWindow = jacobInfoWindow;
             });
 
             // Adding Khyl's Memorial Marker
@@ -234,7 +248,9 @@
             });
 
             khylMemorial.addListener('click', function() {
+                closeOpenInfoWindow();
                 khylInfoWindow.open(map, khylMemorial);
+                openInfoWindow = khylInfoWindow;
             });
 
             // Adding Dylan Arnold Bautista's Memorial Marker
@@ -253,7 +269,9 @@
             });
 
             dylanMemorial.addListener('click', function() {
+                closeOpenInfoWindow();
                 dylanInfoWindow.open(map, dylanMemorial);
+                openInfoWindow = dylanInfoWindow;
             });
         }
     </script>
