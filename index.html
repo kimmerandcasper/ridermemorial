@@ -49,11 +49,10 @@
         function initMap() {
             var riverviewHeightsCemetery = {lat: 46.2115, lng: -119.1225}; // Riverview Heights Cemetery coordinates
 
-            // Create a map centered on the fallback location (Riverview Heights Cemetery)
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 12,
-                center: riverviewHeightsCemetery, // Default to Riverview Heights Cemetery
-                styles: [] // Add any custom styles here if needed
+                center: riverviewHeightsCemetery,
+                styles: []
             });
 
             // Create the search box and link it to the UI element.
@@ -104,27 +103,26 @@
                         title: 'You are here'
                     });
                 }, function() {
-                    // If geolocation fails, the map will stay centered on Riverview Heights Cemetery
                     map.setCenter(riverviewHeightsCemetery);
+                    // No alert now; just center on Riverview Heights Cemetery
                 });
             } else {
-                // Browser doesn't support Geolocation
                 map.setCenter(riverviewHeightsCemetery);
             }
 
-            // Example: Adding a memorial marker at Riverview Heights Cemetery
-            var memorialMarker = new google.maps.Marker({
-                position: riverviewHeightsCemetery,
+            // Adding Joshua Elliot's Memorial Marker
+            var joshuaElliotMemorial = new google.maps.Marker({
+                position: {lat: 46.23560, lng: -119.24055}, // Joshua Elliot's memorial coordinates
                 map: map,
-                title: 'Riverview Heights Cemetery'
+                title: 'Joshua Elliot Memorial'
             });
 
-            var infowindow = new google.maps.InfoWindow({
-                content: '<h2>Riverview Heights Cemetery</h2><p>Information about the cemetery or specific memorial.</p>'
+            var joshuaElliotInfoWindow = new google.maps.InfoWindow({
+                content: '<h2>Joshua Elliot Memorial</h2><p>This is the memorial for Joshua Elliot.</p>'
             });
 
-            memorialMarker.addListener('click', function() {
-                infowindow.open(map, memorialMarker);
+            joshuaElliotMemorial.addListener('click', function() {
+                joshuaElliotInfoWindow.open(map, joshuaElliotMemorial);
             });
         }
     </script>
