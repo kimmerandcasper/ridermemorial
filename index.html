@@ -96,6 +96,20 @@
         .gm-style-iw-c button.gm-ui-hover-effect {
             display: none !important;
         }
+
+        /* Style for the Add Memorial link */
+        .add-memorial {
+            color: #fff;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-decoration: none;
+            display: block;
+        }
+
+        .add-memorial:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -110,6 +124,9 @@
 
     <!-- Map container -->
     <div id="map"></div>
+
+    <!-- Add Memorial link -->
+    <a href="addMemorial.html" class="add-memorial">Add Memorial</a>
 
     <!-- Google Maps JavaScript API -->
     <script>
