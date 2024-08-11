@@ -48,6 +48,29 @@
                 width: 49.5%; /* Increase the size to 3x on mobile devices */
             }
         }
+
+        /* Styling for memorial pop-up content */
+        .memorial-popup h2 {
+            color: black;
+            font-size: 1.5em;
+            margin: 0 0 10px 0;
+            text-align: center;
+        }
+
+        .memorial-popup img {
+            width: 100%;
+            height: auto;
+            border: 2px solid black;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .memorial-popup p {
+            color: black;
+            font-size: 1em;
+            margin-top: 10px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -138,11 +161,11 @@
                 map.setCenter(pos);
             }
 
-            // Adding Joshua Elliot's Memorial Marker with the resized black cross icon
+            // Adding Joshua Elliot's Memorial Marker
             var joshuaElliotMemorial = new google.maps.Marker({
                 position: {lat: 46.23560, lng: -119.24055}, // Joshua Elliot's memorial coordinates
                 map: map,
-                title: 'Joshua Elliot Memorial',
+                title: 'Joshua Elliot',
                 icon: {
                     url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
                     scaledSize: new google.maps.Size(16, 32) // Adjusting both width and height, maintaining aspect ratio
@@ -150,18 +173,18 @@
             });
 
             var joshuaElliotInfoWindow = new google.maps.InfoWindow({
-                content: '<h2 style="color: black;">Joshua Elliot Memorial</h2><p style="color: black;">This is the memorial for Joshua Elliot.</p><img src="https://github.com/kimmerandcasper/ridermemorial/blob/main/joshuaelliotphoto.jpeg?raw=true" alt="Joshua Elliot Photo" style="width:100%;height:auto;">'
+                content: '<div class="memorial-popup"><h2>Joshua Elliot</h2><img src="https://github.com/kimmerandcasper/ridermemorial/blob/main/joshuaelliotphoto.jpeg?raw=true" alt="Joshua Elliot Photo"><p>This is the memorial for Joshua Elliot.</p></div>'
             });
 
             joshuaElliotMemorial.addListener('click', function() {
                 joshuaElliotInfoWindow.open(map, joshuaElliotMemorial);
             });
 
-            // Adding Zade Hakki's Memorial Marker with the same cross icon
+            // Adding Zade Hakki's Memorial Marker
             var zadeMemorial = new google.maps.Marker({
                 position: {lat: 46.21229, lng: -119.24368}, // Zade Hakki's memorial coordinates
                 map: map,
-                title: 'Zade Hakki Memorial',
+                title: 'Zade Hakki',
                 icon: {
                     url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
                     scaledSize: new google.maps.Size(16, 32) // Adjusting both width and height, maintaining aspect ratio
@@ -169,18 +192,18 @@
             });
 
             var zadeInfoWindow = new google.maps.InfoWindow({
-                content: '<h2 style="color: black;">Zade Hakki Memorial</h2><p style="color: black;">This is the memorial for Zade Hakki.</p><img src="https://github.com/kimmerandcasper/ridermemorial/blob/main/ZadeHakkiPhoto.png?raw=true" alt="Zade Hakki Photo" style="width:100%;height:auto;">'
+                content: '<div class="memorial-popup"><h2>Zade Hakki</h2><img src="https://github.com/kimmerandcasper/ridermemorial/blob/main/ZadeHakkiPhoto.png?raw=true" alt="Zade Hakki Photo"><p>This is the memorial for Zade Hakki.</p></div>'
             });
 
             zadeMemorial.addListener('click', function() {
                 zadeInfoWindow.open(map, zadeMemorial);
             });
 
-            // Adding Jacob's Memorial Marker with the same cross icon
+            // Adding Jacob's Memorial Marker
             var jacobMemorial = new google.maps.Marker({
                 position: {lat: 46.20609, lng: -119.10628}, // Jacob's memorial coordinates
                 map: map,
-                title: 'Jacob Memorial',
+                title: 'Jacob',
                 icon: {
                     url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
                     scaledSize: new google.maps.Size(16, 32) // Adjusting both width and height, maintaining aspect ratio
@@ -188,18 +211,18 @@
             });
 
             var jacobInfoWindow = new google.maps.InfoWindow({
-                content: '<h2 style="color: black;">Jacob Memorial</h2><p style="color: black;">This is the memorial for Jacob.</p>'
+                content: '<div class="memorial-popup"><h2>Jacob</h2><p>This is the memorial for Jacob.</p></div>'
             });
 
             jacobMemorial.addListener('click', function() {
                 jacobInfoWindow.open(map, jacobMemorial);
             });
 
-            // Adding Khyl's Memorial Marker with the same cross icon
+            // Adding Khyl's Memorial Marker
             var khylMemorial = new google.maps.Marker({
                 position: {lat: 46.16338, lng: -119.04295}, // Khyl's memorial coordinates
                 map: map,
-                title: 'Khyl Memorial',
+                title: 'Khyl',
                 icon: {
                     url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
                     scaledSize: new google.maps.Size(16, 32) // Adjusting both width and height, maintaining aspect ratio
@@ -207,18 +230,18 @@
             });
 
             var khylInfoWindow = new google.maps.InfoWindow({
-                content: '<h2 style="color: black;">Khyl Memorial</h2><p style="color: black;">This is the memorial for Khyl.</p>'
+                content: '<div class="memorial-popup"><h2>Khyl</h2><p>This is the memorial for Khyl.</p></div>'
             });
 
             khylMemorial.addListener('click', function() {
                 khylInfoWindow.open(map, khylMemorial);
             });
 
-            // Adding Dylan Arnold Bautista's Memorial Marker with the same cross icon
+            // Adding Dylan Arnold Bautista's Memorial Marker
             var dylanMemorial = new google.maps.Marker({
                 position: {lat: 46.19598, lng: -119.13937}, // Dylan Arnold Bautista's memorial coordinates
                 map: map,
-                title: 'Dylan Arnold Bautista Memorial',
+                title: 'Dylan Arnold Bautista',
                 icon: {
                     url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
                     scaledSize: new google.maps.Size(16, 32) // Adjusting both width and height, maintaining aspect ratio
@@ -226,7 +249,7 @@
             });
 
             var dylanInfoWindow = new google.maps.InfoWindow({
-                content: '<h2 style="color: black;">Dylan Arnold Bautista Memorial</h2><p style="color: black;">This is the memorial for Dylan Arnold Bautista.</p><img src="https://github.com/kimmerandcasper/ridermemorial/blob/main/DylanArnoldBautistaPhoto.png?raw=true" alt="Dylan Arnold Bautista Photo" style="width:100%;height:auto;">'
+                content: '<div class="memorial-popup"><h2>Dylan Arnold Bautista</h2><img src="https://github.com/kimmerandcasper/ridermemorial/blob/main/DylanArnoldBautistaPhoto.png?raw=true" alt="Dylan Arnold Bautista Photo"><p>This is the memorial for Dylan Arnold Bautista.</p></div>'
             });
 
             dylanMemorial.addListener('click', function() {
