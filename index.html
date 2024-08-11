@@ -165,6 +165,10 @@
                 }
             }
 
+            map.addListener('click', function() {
+                closeOpenInfoWindow();
+            });
+
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
                     var userLocation = {
