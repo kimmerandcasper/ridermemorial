@@ -49,14 +49,14 @@
             }
         }
 
-        /* Styling for memorial pop-up content */
-        .memorial-popup {
+        /* Custom styling for specific memorial popups */
+        .custom-popup .memorial-popup {
             background-color: #000; /* Black background for the popup */
             padding: 10px;
             border-radius: 10px;
         }
 
-        .memorial-popup h2 {
+        .custom-popup .memorial-popup h2 {
             color: white;
             font-size: 1.875em; /* 25% bigger */
             margin: 0;
@@ -70,7 +70,7 @@
             width: 100%;
         }
 
-        .memorial-popup img {
+        .custom-popup .memorial-popup img {
             width: 50%; /* Reduce image size to 50% */
             height: auto;
             border: 2px solid white; /* White border for contrast */
@@ -78,22 +78,22 @@
             margin: 10px auto 0 auto; /* Center the image and add margin */
         }
 
-        .memorial-popup p {
+        .custom-popup .memorial-popup p {
             color: white;
             font-size: 1em;
             margin-top: 10px;
             text-align: center;
         }
 
-        /* Styling the entire popup to be black */
-        .gm-style-iw {
+        /* Styling the entire custom popup to be black */
+        .gm-style-iw.custom-popup {
             background-color: #000 !important; /* Black background */
             border-radius: 10px !important; /* Round the corners */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important; /* Add a shadow for depth */
         }
 
-        /* Hide the X button on the Google Maps InfoWindow */
-        .gm-style-iw-c button.gm-ui-hover-effect {
+        /* Hide the X button on the custom Google Maps InfoWindow */
+        .gm-style-iw-c button.gm-ui-hover-effect.custom-popup {
             display: none !important;
         }
     </style>
@@ -193,8 +193,10 @@
                 cemeteryInfoWindow = new google.maps.InfoWindow({
                     map: map,
                     position: pos,
-                    content: '<span style="color: black;">Riverview Heights Cemetery</span>'
+                    content: '<div class="memorial-popup"><span>Riverview Heights Cemetery</span></div>',
                 });
+                cemeteryInfoWindow.setOptions({pixelOffset: new google.maps.Size(0, -10)});
+                cemeteryInfoWindow.setContent('<div class="memorial-popup"><h2>Riverview Heights Cemetery</h2></div>');
                 map.setCenter(pos);
             }
 
@@ -215,6 +217,7 @@
 
             joshuaElliotMemorial.addListener('click', function() {
                 closeOpenInfoWindow();
+                joshuaElliotInfoWindow.setOptions({pixelOffset: new google.maps.Size(0, -10)});
                 joshuaElliotInfoWindow.open(map, joshuaElliotMemorial);
                 openInfoWindow = joshuaElliotInfoWindow;
             });
@@ -236,6 +239,7 @@
 
             zadeMemorial.addListener('click', function() {
                 closeOpenInfoWindow();
+                zadeInfoWindow.setOptions({pixelOffset: new google.maps.Size(0, -10)});
                 zadeInfoWindow.open(map, zadeMemorial);
                 openInfoWindow = zadeInfoWindow;
             });
@@ -257,6 +261,7 @@
 
             jacobMemorial.addListener('click', function() {
                 closeOpenInfoWindow();
+                jacobInfoWindow.setOptions({pixelOffset: new google.maps.Size(0, -10)});
                 jacobInfoWindow.open(map, jacobMemorial);
                 openInfoWindow = jacobInfoWindow;
             });
@@ -278,6 +283,7 @@
 
             khylMemorial.addListener('click', function() {
                 closeOpenInfoWindow();
+                khylInfoWindow.setOptions({pixelOffset: new google.maps.Size(0, -10)});
                 khylInfoWindow.open(map, khylMemorial);
                 openInfoWindow = khylInfoWindow;
             });
@@ -299,6 +305,7 @@
 
             dylanMemorial.addListener('click', function() {
                 closeOpenInfoWindow();
+                dylanInfoWindow.setOptions({pixelOffset: new google.maps.Size(0, -10)});
                 dylanInfoWindow.open(map, dylanMemorial);
                 openInfoWindow = dylanInfoWindow;
             });
