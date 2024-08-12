@@ -220,14 +220,17 @@
                 openInfoWindow = cemeteryInfoWindow;
             }
 
-            // Adding Joshua Elliott's Memorial Marker
+            // Cross icon size configuration for all markers
+            const crossIconSize = new google.maps.Size(16, 32); // 50% smaller size
+
+            // Adding Joshua Elliott's Memorial Marker with a custom icon
             var joshuaElliotMemorial = new google.maps.Marker({
                 position: {lat: 46.23560, lng: -119.24055}, // Joshua Elliott's memorial coordinates
                 map: map,
                 title: 'Joshua Elliott',
                 icon: {
                     url: 'https://github.com/kimmerandcasper/ridermemorial/blob/main/blackcrossmarkerFlowers.png?raw=true',
-                    scaledSize: new google.maps.Size(32, 64) // Adjusting both width and height, maintaining aspect ratio
+                    scaledSize: crossIconSize // Use the same size for all crosses
                 }
             });
 
@@ -248,7 +251,7 @@
                 title: 'Zade Hakki',
                 icon: {
                     url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
-                    scaledSize: new google.maps.Size(16, 32) // Adjusting both width and height, maintaining aspect ratio
+                    scaledSize: crossIconSize // Use the same size for all crosses
                 }
             });
 
@@ -269,7 +272,7 @@
                 title: 'Jacob',
                 icon: {
                     url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
-                    scaledSize: new google.maps.Size(16, 32) // Adjusting both width and height, maintaining aspect ratio
+                    scaledSize: crossIconSize // Use the same size for all crosses
                 }
             });
 
@@ -290,7 +293,7 @@
                 title: 'Khyl Cassano',
                 icon: {
                     url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
-                    scaledSize: new google.maps.Size(16, 32) // Adjusting both width and height, maintaining aspect ratio
+                    scaledSize: crossIconSize // Use the same size for all crosses
                 }
             });
 
@@ -311,7 +314,7 @@
                 title: 'Dylan Arnold Bautista',
                 icon: {
                     url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
-                    scaledSize: new google.maps.Size(16, 32) // Adjusting both width and height, maintaining aspect ratio
+                    scaledSize: crossIconSize // Use the same size for all crosses
                 }
             });
 
