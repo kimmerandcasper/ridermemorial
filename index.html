@@ -355,6 +355,32 @@
                 openInfoWindow = brendonInfoWindow;
             });
 
+            // Adding Kristina Middleton's Memorial Marker with a custom icon
+            var kristinaMemorial = new google.maps.Marker({
+                position: {lat: 46.22634, lng: -119.22355}, // Kristina Middleton's memorial coordinates
+                map: map,
+                title: 'Kristina Middleton',
+                icon: {
+                    url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
+                    scaledSize: crossIconSize // Use the same size for all crosses
+                }
+            });
+
+            var kristinaInfoWindow = new google.maps.InfoWindow({
+                content: `
+                <div class="memorial-popup">
+                    <h2>Kristina Middleton</h2>
+                    <img src="https://github.com/kimmerandcasper/ridermemorial/blob/main/KristinaMiddleton/IMG_9725.jpg?raw=true" alt="Kristina Middleton Photo">
+                    <p>A 50-year-old mom died too soon after losing control of her motorcycle on Canal Drive on a Sunday night.</p>
+                </div>`
+            });
+
+            kristinaMemorial.addListener('click', function() {
+                closeOpenInfoWindow();
+                kristinaInfoWindow.open(map, kristinaMemorial);
+                openInfoWindow = kristinaInfoWindow;
+            });
+
             // Close all popups when clicking on the map
             map.addListener('click', function() {
                 closeOpenInfoWindow();
