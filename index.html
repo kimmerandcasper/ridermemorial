@@ -381,6 +381,32 @@
                 openInfoWindow = kristinaInfoWindow;
             });
 
+            // Adding Monique Garcia's Memorial Marker with a custom icon
+            var moniqueMemorial = new google.maps.Marker({
+                position: {lat: 46.17157, lng: -119.05127}, // Monique Garcia's memorial coordinates
+                map: map,
+                title: 'Monique Garcia',
+                icon: {
+                    url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
+                    scaledSize: crossIconSize // Use the same size for all crosses
+                }
+            });
+
+            var moniqueInfoWindow = new google.maps.InfoWindow({
+                content: `
+                <div class="memorial-popup">
+                    <h2>Monique Garcia</h2>
+                    <img src="https://github.com/kimmerandcasper/ridermemorial/blob/main/MoniqueGarcia/IMG_9726.jpg?raw=true" alt="Monique Garcia Photo">
+                    <p>Monique was the passenger on a motorcycle heading southbound on SR 397 near the Kennewick city limits when the biker attempted to pass a truck towing a trailer as the truck was turning into a parking lot.</p>
+                </div>`
+            });
+
+            moniqueMemorial.addListener('click', function() {
+                closeOpenInfoWindow();
+                moniqueInfoWindow.open(map, moniqueMemorial);
+                openInfoWindow = moniqueInfoWindow;
+            });
+
             // Close all popups when clicking on the map
             map.addListener('click', function() {
                 closeOpenInfoWindow();
