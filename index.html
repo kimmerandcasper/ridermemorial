@@ -271,18 +271,19 @@
                 map: map,
                 title: 'Jacob Schouten',
                 icon: {
-                    url: 'https://github.com/kimmerandcasper/ridermemorial/blob/main/blackcrossmarker.png',
+                    url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
                     scaledSize: crossIconSize // Use the same size for all crosses
                 }
             });
 
             var jacobInfoWindow = new google.maps.InfoWindow({
-                content: `<div class="memorial-popup"><h2>Jacob Schouten</h2>
-                          <p>August 4, 1981 - March 11, 2023</p>
-                          <img src="https://github.com/kimmerandcasper/ridermemorial/blob/main/JacobSchouten/Screenshot%202024-08-13%20at%206.17.06%E2%80%AFPM.png?raw=true" alt="Jacob Schouten Photo">
-                          <p>In Loving Memory of Jacob Michael Schouten, 41, of Kennewick, Washington. Taken too soon on March 11th, 2023 in a motorcycle accident. 
-                          Jacob is survived by his Mother Kathey McMurtrey of Pasco and his Father Larry Schouten of Kennewick. Lovingly remembered by his two sisters Amy and Katie. 
-                          His nephew Maddex and nieces Coleigh and Olivia. As well as his daughter Zoe Schouten.</p></div>`
+                content: `
+                <div class="memorial-popup">
+                    <h2>Jacob Schouten</h2>
+                    <p>August 4, 1981 - March 11, 2023</p>
+                    <img src="https://github.com/kimmerandcasper/ridermemorial/blob/main/JacobSchouten/Screenshot%202024-08-13%20at%206.17.06%E2%80%AFPM.png?raw=true" alt="Jacob Schouten Photo">
+                    <p>In Loving Memory of Jacob Michael Schouten, 41, of Kennewick, Washington. Taken too soon on March 11th, 2023 in a motorcycle accident.</p>
+                </div>`
             });
 
             jacobMemorial.addListener('click', function() {
