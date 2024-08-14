@@ -510,6 +510,32 @@ eliasMemorial.addListener('click', function() {
     openInfoWindow = eliasInfoWindow;
 });
 
+// Adding Celton Kimmel's Memorial Marker
+var celtonMemorial = new google.maps.Marker({
+    position: {lat: 47.66464, lng: -117.42870}, // Celton Kimmel's memorial coordinates
+    map: map,
+    title: 'Celton Kimmel',
+    icon: {
+        url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
+        scaledSize: crossIconSize // Use the same size for all crosses
+    }
+});
+
+var celtonInfoWindow = new google.maps.InfoWindow({
+    content: `
+    <div class="memorial-popup">
+        <h2>Celton Kimmel</h2>
+        <p>30-year-old Celton Kimmel tragically lost his life after a collision on Broadway. He was rushed to Samaritan Hospital in Moses Lake, where he was pronounced dead. He will be remembered by his loved ones.</p>
+    </div>`
+});
+
+celtonMemorial.addListener('click', function() {
+    closeOpenInfoWindow();
+    celtonInfoWindow.open(map, celtonMemorial);
+    openInfoWindow = celtonInfoWindow;
+});
+
+
 
             // Close all popups when clicking on the map
             map.addListener('click', function() {
