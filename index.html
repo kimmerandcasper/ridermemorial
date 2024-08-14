@@ -485,6 +485,32 @@
                 openInfoWindow = randyInfoWindow;
             });
 
+            // Adding Elias Cervantes' Memorial Marker
+var eliasMemorial = new google.maps.Marker({
+    position: {lat: 46.23217, lng: -119.20136}, // Elias Cervantes' memorial coordinates
+    map: map,
+    title: 'Elias Cervantes',
+    icon: {
+        url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
+        scaledSize: crossIconSize // Use the same size for all crosses
+    }
+});
+
+var eliasInfoWindow = new google.maps.InfoWindow({
+    content: `
+    <div class="memorial-popup">
+        <h2>Elias Cervantes</h2>
+        <p>21-year-old Elias Cervantes lost his life in a tragic motorcycle accident on April 14, 2024, when he lost control on Paul Parrish Drive. He will be remembered with love by his family and friends.</p>
+    </div>`
+});
+
+eliasMemorial.addListener('click', function() {
+    closeOpenInfoWindow();
+    eliasInfoWindow.open(map, eliasMemorial);
+    openInfoWindow = eliasInfoWindow;
+});
+
+
             // Close all popups when clicking on the map
             map.addListener('click', function() {
                 closeOpenInfoWindow();
