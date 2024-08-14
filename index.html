@@ -433,6 +433,58 @@
                 openInfoWindow = shaneInfoWindow;
             });
 
+             // Adding Rodney Ahrens' Memorial Marker with a custom icon
+             var rodneyMemorial = new google.maps.Marker({
+                position: {lat: 46.70499, lng: -120.47209}, // Rodney Ahrens' memorial coordinates
+                map: map,
+                title: 'Rodney Ahrens',
+                icon: {
+                    url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
+                    scaledSize: crossIconSize // Use the same size for all crosses
+                }
+            });
+
+            var rodneyInfoWindow = new google.maps.InfoWindow({
+                content: `
+                <div class="memorial-popup">
+                    <h2>Rodney Ahrens</h2>
+                    <p>June 21, 2024</p>
+                    <p>Rodney Ahrens, 69, of Issaquah, was hit by a car. He later died of his injuries.</p>
+                </div>`
+            });
+
+            rodneyMemorial.addListener('click', function() {
+                closeOpenInfoWindow();
+                rodneyInfoWindow.open(map, rodneyMemorial);
+                openInfoWindow = rodneyInfoWindow;
+            });
+
+            // Adding Randy Agnew's Memorial Marker with a custom icon and slight offset
+            var randyMemorial = new google.maps.Marker({
+                position: {lat: 46.70509, lng: -120.47219}, // Randy Agnew's memorial coordinates (slight offset)
+                map: map,
+                title: 'Randy Agnew',
+                icon: {
+                    url: 'https://raw.githubusercontent.com/kimmerandcasper/ridermemorial/main/blackcrossmarker.png',
+                    scaledSize: crossIconSize // Use the same size for all crosses
+                }
+            });
+
+            var randyInfoWindow = new google.maps.InfoWindow({
+                content: `
+                <div class="memorial-popup">
+                    <h2>Randy Agnew</h2>
+                    <p>June 21, 2024</p>
+                    <p>Randy Agnew, 75, of Issaquah, crashed into a car and later died of his injuries.</p>
+                </div>`
+            });
+
+            randyMemorial.addListener('click', function() {
+                closeOpenInfoWindow();
+                randyInfoWindow.open(map, randyMemorial);
+                openInfoWindow = randyInfoWindow;
+            });
+
             // Close all popups when clicking on the map
             map.addListener('click', function() {
                 closeOpenInfoWindow();
